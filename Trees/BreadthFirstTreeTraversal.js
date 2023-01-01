@@ -36,11 +36,26 @@ class BinaryTree {
 
   breadthFirstRecursive () {
     const traversal = []
+    const levelTrav = []
     const h = this.getHeight(this.root)
     for (let i = 0; i !== h; i++) {
-      this.traverseLevel(this.root, i, traversal)
+      const eachLev = []
+      this.traverseLevel(this.root, i, traversal, eachLev)
+      levelTrav.push(eachLev)
     }
     return traversal
+  }
+
+  breadthFirstRecursive2 () {
+    // const traversal = [];
+    const levelTrav = []
+    const h = this.getHeight(this.root)
+    for (let i = 0; i !== h; i++) {
+      const traversal = []
+      this.traverseLevel(this.root, i, traversal)
+      levelTrav.push(traversal)
+    }
+    return levelTrav
   }
 
   // Computing the height of the tree
